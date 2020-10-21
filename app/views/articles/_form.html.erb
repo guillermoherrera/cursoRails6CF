@@ -1,0 +1,15 @@
+<%= form_with(model:@article, local: true) do |form|%>
+  <div>
+    <%=form.label :titulo, "Titulo"%>
+    <%=form.text_field :titulo%>
+  </div>
+
+  <div>
+    <%=form.label :contenido, "Contenido"%>
+    <%=form.rich_text_area :contenido%>
+  </div>
+
+  <div>
+    <%=form.submit%>
+  </div>    
+<%end%>
