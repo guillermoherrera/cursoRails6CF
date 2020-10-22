@@ -9,6 +9,15 @@
         <%=@article.contenido%>
     </div>
 
+    <div class='margin.top'>
+        <p class='label'> tags</p>
+        <% @article.categories.each do |category| %>
+            <span class='badge badge-pill padding' style='background-color: <%=category.color%>'>
+                <%= link_to category.title, category, class: 'text-white'%>
+            </span>
+        <% end %>
+    </div>
+
     <div>
         <%= link_to  "Eliminar Articulo", @article, method: :delete %>
 </div>
