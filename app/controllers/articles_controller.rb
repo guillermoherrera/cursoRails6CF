@@ -24,12 +24,12 @@ class ArticlesController < ApplicationController
   
   def update
     #@article = Article.find(params[:id])
-    @article.update(titulo: params[:article][:titulo], contenido: params[:article][:contenido])
+    @article.update(article_params)
     redirect_to @article
   end
 
   def create
-    @article = current_user.articles.create(titulo: params[:article][:titulo], contenido: params[:article][:contenido])
+    @article = current_user.articles.create(article_params)
     redirect_to @article
     #render json: @article
   end
@@ -44,5 +44,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   
-    
+  def article_params
+    params.require(:article).permit(:titulo, :contenido)
+  end
 end
