@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'home#index'
   get '/bienvenido', to: 'home#index'
-
+  get '/perfil', to: 'users#edit' 
+  resources :users, only: [:update]
   #get 'articles/user/:user_id', to: 'articles#from_author'
 
   resources :articles do
